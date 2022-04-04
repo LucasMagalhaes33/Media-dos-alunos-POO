@@ -1,5 +1,7 @@
 package classes;
 
+import constantes.statusAluno;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -85,11 +87,11 @@ public class Aluno {
     }
 
     public List<Disciplina> getDisciplina() {
-        return disciplina;
+        return disciplinas;
     }
 
     public void setDisciplina(List<Disciplina> disciplina) {
-        this.disciplina = disciplina;
+        this.disciplinas = disciplina;
     }
 
     @Override
@@ -116,7 +118,7 @@ public class Aluno {
                 ", nomePai='" + nomePai + '\'' +
                 ", nomeEscola='" + nomeEscola + '\'' +
                 ", serieMatriculado='" + serieMatriculado + '\'' +
-                ", disciplina=" + disciplina +
+                ", disciplina=" + disciplinas +
                 '}';
     }
 
@@ -132,13 +134,13 @@ public class Aluno {
     }
 
     public String getAlunoAprovado() {
-        media = disciplinas.getMediaNotas();
+        double media = this.getMediaNotas();
 
         if (media >= 50) {
             if (media >= 70) {
                 return statusAluno.APROVADO;
             } else {
-                return statusAluno.Recuperacao;
+                return statusAluno.RECUPERACAO;
             }
         } else {
             return statusAluno.REPROVADO;
