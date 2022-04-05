@@ -2,6 +2,7 @@ package executavel;
 
 import classes.Aluno;
 import classes.Disciplina;
+import classes.Secretario;
 import constantes.statusAluno;
 
 import javax.swing.*;
@@ -13,9 +14,13 @@ public class PrimeiraClasse {
 
     public static void main(String[] args){
         String login = JOptionPane.showInputDialog("Login: ");
-        String media = JOptionPane.showInputDialog("Senha: ");
+        String senha = JOptionPane.showInputDialog("Senha: ");
 
-        if (login.equalsIgnoreCase("admin") && media.equalsIgnoreCase("admin")) {
+        Secretario secretario = new Secretario();
+        secretario.setLogin(login);
+        secretario.setSenha(senha);
+
+        if (secretario.autenticar()) {
             List<Aluno> alunos = new ArrayList<Aluno>();
             HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
@@ -90,6 +95,8 @@ public class PrimeiraClasse {
                     maps.get(statusAluno.REPROVADO)) {
                 System.out.println("Resultado = " + aluno2.getNome() + " com média " + aluno2.getMediaNotas());
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Acesso não permitido");
         }
     }
 }
