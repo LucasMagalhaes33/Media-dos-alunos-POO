@@ -16,11 +16,7 @@ public class PrimeiraClasse {
         String login = JOptionPane.showInputDialog("Login: ");
         String senha = JOptionPane.showInputDialog("Senha: ");
 
-        Secretario secretario = new Secretario();
-        secretario.setLogin(login);
-        secretario.setSenha(senha);
-
-        if (secretario.autenticar()) {
+        if (new Secretario().autenticar(login, senha)) {
             List<Aluno> alunos = new ArrayList<Aluno>();
             HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
