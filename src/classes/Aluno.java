@@ -6,20 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Aluno {
-    private String nome;
-    private int idade;
-    private String dataNascimento;
-    private String numeroCpf;
-    private String registroGeral;
-    private String nomePai;
+public class Aluno extends Pessoa{
     private String nomeEscola;
     private String serieMatriculado;
 
     private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
 
     public Aluno() {
+    }
 
+    public Aluno(String nomePadrao, int idadePadrao){
+        nome = nomePadrao;
+        idade = idadePadrao;
     }
 
     public String getNome() {
