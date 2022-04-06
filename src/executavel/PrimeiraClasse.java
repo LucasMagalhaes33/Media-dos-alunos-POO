@@ -1,8 +1,10 @@
 package executavel;
 
 import classes.Aluno;
+import classes.Diretor;
 import classes.Disciplina;
 import classes.Secretario;
+import classesAuxiliares.FuncaoAutenticacao;
 import constantes.statusAluno;
 import interfaces.PermitirAcesso;
 
@@ -17,10 +19,8 @@ public class PrimeiraClasse {
         String login = JOptionPane.showInputDialog("Login: ");
         String senha = JOptionPane.showInputDialog("Senha: ");
 
-        PermitirAcesso permitirAcesso = new Secretario(login, senha);
 
-
-        if (permitirAcesso.autenticar()) {
+        if (new FuncaoAutenticacao(new Diretor(login, senha)).autenticar()) {
             List<Aluno> alunos = new ArrayList<Aluno>();
             HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
