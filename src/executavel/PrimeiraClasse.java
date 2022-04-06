@@ -4,6 +4,7 @@ import classes.Aluno;
 import classes.Disciplina;
 import classes.Secretario;
 import constantes.statusAluno;
+import interfaces.PermitirAcesso;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,7 +17,10 @@ public class PrimeiraClasse {
         String login = JOptionPane.showInputDialog("Login: ");
         String senha = JOptionPane.showInputDialog("Senha: ");
 
-        if (new Secretario().autenticar(login, senha)) {
+        PermitirAcesso permitirAcesso = new Secretario(login, senha);
+
+
+        if (permitirAcesso.autenticar()) {
             List<Aluno> alunos = new ArrayList<Aluno>();
             HashMap<String, List<Aluno>> maps = new HashMap<String, List<Aluno>>();
 
